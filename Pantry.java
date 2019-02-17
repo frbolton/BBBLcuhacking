@@ -5,6 +5,10 @@ public class Pantry{
 
 	private Ingredient[] ingredients = new Ingredient[0];
 
+	public Ingredient[] getIngredients(){
+		return this.ingredients;
+	}
+
 	public void addNewIngredient(String ingredient, double qty){
 		boolean ingredientExists = false;
 		for(int i=0; i < this.ingredients.length; i+=1){

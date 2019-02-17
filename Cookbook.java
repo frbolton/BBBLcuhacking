@@ -78,7 +78,7 @@ public class Cookbook{
         int categorySize = 0;
         int nextAvailIndex = 0;
         for(int i = 0; i < this.recipes.length; i++){
-            for(int j = 0; j < this.recipes[i].getTags().length; j++){
+            for(int j = 0; j < this.recipes[i].getTags().length; j+=1){
                 if(this.recipes[i].getTags()[j].equals(tag)){
                     categorySize +=1;
                 }
@@ -98,10 +98,46 @@ public class Cookbook{
         return recipesWithTag;
     }
 
-    /*public void showRecipesNow(){
+    public void showRecipesNow(Pantry pantry){
+    	for(int i = 0; i < this.recipes.length; i+=1){ //make sure can make score is 0 before we start computing
+    		this.recipes[i].setCanMakeScore(0);
+    		this.recipes[i].resetIngredientsAreInPantry();
+    	}
+
+    	int matchedRecipes = 0;
+    	boolean matchedRecipe = false;
         //go through all recipes
-        for(Recipe recipe : recipes){
-            //
+        for(int i = 0; i < this.recipes.length; i+=1){
+        	for(int j = 0; j < this.recipes[i].getIngredients().length; j+=1){
+        		for(int k = 0; k < pantry.getIngredients().length; k+=1){
+        			if(this.recipes[i].getIngredients()[j].getName().equals(pantry.getIngredients()[k].getName())){
+        				this.recipes[i].setCanMakeScore(this.recipes[i].getCanMakeScore()+1);
+        				this.recipes[i].addIngredientIsInPantry(pantry.getIngredients()[k]);
+        				matchedRecipe = true;
+        			}
+        		}
+        	}
+        	if(matchedRecipe == true){
+        		matchedRecipes +=1;
+        	}
         }
-    }*/
+        Recipe[] recipesWithMatchedIngredients = new Recipe[matchedRecipes];
+        int nextAvailIndex = 0;
+        //populate array of matched recipes
+        for(int i=0; i < this.recipes.length; i+=1){
+        	if(this.recipes[i].getIngredientsAreInPantry().length>0){
+        		recipesWithMatchedIngredients[nextAvailIndex] = this.recipes[i];
+        	}
+        }
+
+        //sort the items in array in order of matched ingredients
+
+        for(int i=0; i < recipesWithMatchedIngredients.length; i+=1){
+        	if(recipesWithMatchedIngredients[i+1].getCanMakeScore()>recipesWithMatchedIngredients[i].getCanMakeScore()){
+        		Recipe temp = recipesWithMatchedIngredients[i];
+        		recipesWithMatchedIngredients[i] = recipesWithMatchedIngredients[i+1];
+        		recipesWithMatchedIngredients[i+1] = temp;
+        	}
+        }
+    }
 }

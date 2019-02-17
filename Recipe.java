@@ -5,6 +5,8 @@ public class Recipe{
     private String name;
     private Ingredient[] ingredients;
     private int calories;
+    private int canMakeScore = 0;
+    private Ingredient[] ingredientsAreInPantry = new Ingredient[0];
 
     private String[] tags = new String[0];
 
@@ -28,6 +30,19 @@ public class Recipe{
     }
 
     // SETTERS
+
+    public void addIngredientIsInPantry(Ingredient ingredient){
+        Ingredient[] newIngredientsAreInPantry = new Ingredient[this.ingredientsAreInPantry.length+1];
+        for(int i=0; i < this.ingredientsAreInPantry.length; i+=1){
+            newIngredientsAreInPantry[i] = this.ingredientsAreInPantry[i];
+        }
+        newIngredientsAreInPantry[newIngredientsAreInPantry.length-1] = ingredient;
+        this.ingredientsAreInPantry = newIngredientsAreInPantry;
+    }
+
+    public void resetIngredientsAreInPantry(){
+        this.ingredientsAreInPantry = new Ingredient[0];
+    }
 
     public Recipe setName(String name){
         this.name = name;
@@ -58,6 +73,11 @@ public class Recipe{
             return this;
         }
         this.calories = cal;
+        return this;
+    }
+
+    public Recipe setCanMakeScore(int score){
+        this.canMakeScore = score;
         return this;
     }
 
@@ -92,5 +112,13 @@ public class Recipe{
 
     public String[] getTags(){
         return this.tags;
+    }
+
+    public int getCanMakeScore(){
+        return this.canMakeScore;
+    }
+
+    public Ingredient[] getIngredientsAreInPantry(){
+        return ingredientsAreInPantry;
     }
 }
