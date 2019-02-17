@@ -9,12 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+<<<<<<< HEAD
         <activity android:name=".RecipeForm"></activity>
         <activity android:name=".RecipeDisplayAct" />
         <activity android:name=".MealplanAct" />
         <activity android:name=".PantryAct" />
         <activity android:name=".CookbookAct" />
         <activity android:name=".OptionMenu" />
+=======
+>>>>>>> aa55875eec292fb00e2e95f548cb2fd42213c325
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
 
+=======
+>>>>>>> aa55875eec292fb00e2e95f548cb2fd42213c325
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

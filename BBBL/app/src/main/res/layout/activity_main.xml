@@ -58,9 +58,14 @@
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="sans-serif-thin"
+<<<<<<< HEAD
         android:hint="Name"
         android:inputType="textPersonName"
         android:text=""
+=======
+        android:inputType="textPersonName"
+        android:text="@string/NAME_PROMPT"
+>>>>>>> aa55875eec292fb00e2e95f548cb2fd42213c325
         android:textAlignment="center"
         android:textColor="@color/DarkBlue"
         android:textSize="18sp"
