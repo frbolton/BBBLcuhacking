@@ -15,12 +15,13 @@ public class Pantry{
 		}
 		if(ingredientExists == false){
 			Ingredient[] newIngredients = new Ingredient[ingredients.length+1];
-			for(int i = 0; i < this.ingredients.length; i+=1;){
+			for(int i = 0; i < this.ingredients.length; i+=1){
 				newIngredients[i] = this.ingredients[i];				
 			}
 
 			newIngredients[newIngredients.length-1] = new Ingredient(ingredient, qty);
 			this.ingredients = newIngredients;
+		}
 	}
 
 	public boolean deleteIngredient(Ingredient ingredient){
